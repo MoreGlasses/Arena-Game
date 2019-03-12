@@ -18,33 +18,30 @@ public class ZombieScript : MonoBehaviour
     //}
 
     
-
-    public Transform target;
     public float speed = 2f;
-    private float minDistance = 1f;
-    public bool facingRight = true;
-    private float range;
-    
+    private Transform playerPos;
+
+    void Start()
+    {
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
 
     void Update()
     {
-        range = Vector2.Distance(transform.position, target.position);
 
-        if (range > minDistance)
+            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
+            
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Projectile"))
         {
-            Debug.Log(range);
-
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-            //Vector3 lookVector = target.transform.position - transform.position;
-            //lookVector.y = transform.position.y;
-            //Quaternion rot = Quaternion.LookRotation(lookVector);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, rot, 1);
-
+            Destroy(gameObject);
         }
     }
 
-    }
+}
 
 
 
