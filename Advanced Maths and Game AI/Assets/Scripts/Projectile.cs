@@ -13,10 +13,10 @@ public class Projectile : MonoBehaviour
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    float damage = -10f;
-
-
     
+
+   
+
 
     // Update is called once per frame
     void Update()
@@ -27,5 +27,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
 }

@@ -21,18 +21,33 @@ public class ZombieScript : MonoBehaviour
     public float speed = 2f;
     private Transform playerPos;
     private PlayerMovement player;
+    public SpriteRenderer sr;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
 
             transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
+            Vector3 lookVector = player.transform.position - transform.position;
             
+            if (player.transform.position.x > transform.position.x)
+            {
+
+                sr.flipX = false;
+                
+            } else {
+
+                sr.flipX = true;
+         
+            }
+            
+
     }
 
     
@@ -50,6 +65,7 @@ public class ZombieScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 
 }
 

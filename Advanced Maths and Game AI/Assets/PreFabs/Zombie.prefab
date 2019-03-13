@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2206525808298040197}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2206525808298040203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.73, y: 0.581, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1.6141816}
+  m_LocalScale: {x: 12, y: 12, z: 1.6141816}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -161,4 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2290682b59bf1b4c8fec8be911a33dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 9
+  sr: {fileID: 0}
