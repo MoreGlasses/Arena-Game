@@ -20,9 +20,11 @@ public class ZombieScript : MonoBehaviour
     
     public float speed = 2f;
     private Transform playerPos;
+    private PlayerMovement player;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -33,8 +35,16 @@ public class ZombieScript : MonoBehaviour
             
     }
 
+    
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Player"))
+        {
+            player.health--;
+            Debug.Log(player.health);
+            Destroy(gameObject);
+        }
+
         if (other.CompareTag("Projectile"))
         {
             Destroy(gameObject);

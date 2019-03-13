@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
 
     Animator animator;
-    
+
+    public Text healthDisplay;
     public float speed = 50f;
     float walkinghorizontal, walkingvertical;
     public bool facingRight = true;
     public float RotateSpeed = 3.0F;
+    public int health = 3;
 
     void Start()
     {
@@ -22,8 +26,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        healthDisplay.text = "HEALTH : " + health;
 
-        if (Input.GetMouseButtonDown(0))
+        //if (health <= 0)
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //}
+
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
+
+            if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Attack");
         }
