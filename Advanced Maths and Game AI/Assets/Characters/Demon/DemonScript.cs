@@ -4,14 +4,16 @@ using System.Collections;
 public class DemonScript : MonoBehaviour
 {
     public float speed;
+    public float health;
     public float stoppingDistance;
     public float retreatDistance;
     private float timeBetweenShots;
     public float startTimeBetweenShots;
     private Transform playerPos;
     private PlayerMovement player;
-    public SpriteRenderer sr;
+    private SpriteRenderer sr;
     public GameObject projectile;
+    public GameObject deathAnim;
 
     void Start()
     {
@@ -72,7 +74,15 @@ public class DemonScript : MonoBehaviour
 
         if (other.CompareTag("Projectile"))
         {
-            Destroy(gameObject);
+            this.health--;
+            Debug.Log(this.health);
+            if (this.health <= 0)
+            {
+                Instantiate(deathAnim, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+
+            }
+
         }
     }
 }

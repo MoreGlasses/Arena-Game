@@ -19,9 +19,11 @@ public class ZombieScript : MonoBehaviour
 
     
     public float speed = 2f;
+    public float health;
     private Transform playerPos;
     private PlayerMovement player;
-    public SpriteRenderer sr;
+    private SpriteRenderer sr;
+    public GameObject deathAnim;
 
     void Start()
     {
@@ -46,11 +48,11 @@ public class ZombieScript : MonoBehaviour
                 sr.flipX = true;
          
             }
-            
-
+           
     }
 
-    
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -62,9 +64,20 @@ public class ZombieScript : MonoBehaviour
 
         if (other.CompareTag("Projectile"))
         {
-            Destroy(gameObject);
+            this.health--;
+            Debug.Log(this.health);
+            if (this.health <= 0)
+            {
+                Instantiate(deathAnim, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+               
+            }
+
         }
     }
+
+
+
 
 
 }

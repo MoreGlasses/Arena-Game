@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         {
             int randPos = Random.Range(0, spawnSpots.Length - 1);
             Instantiate(enemy, spawnSpots[randPos].position, Quaternion.identity);
-            timeBetweenSpawns = 2;
+            timeBetweenSpawns = 5;
         } else
         {
             timeBetweenSpawns -= Time.deltaTime;

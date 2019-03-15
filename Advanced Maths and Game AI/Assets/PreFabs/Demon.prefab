@@ -114,12 +114,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d00bbb0d121f224b9f499607b707891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 13
+  health: 3
   stoppingDistance: 15
   retreatDistance: 10
   startTimeBetweenShots: 2
   sr: {fileID: 0}
   projectile: {fileID: 8944762722567223855, guid: 072f34ab7e05e954e868ad9567189464,
+    type: 3}
+  deathAnim: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
     type: 3}
 --- !u!61 &3416003183223588092
 BoxCollider2D:
