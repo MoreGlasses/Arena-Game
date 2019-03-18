@@ -9,11 +9,17 @@ public class DemonScript : MonoBehaviour
     public float retreatDistance;
     private float timeBetweenShots;
     public float startTimeBetweenShots;
+
     private Transform playerPos;
     private PlayerMovement player;
     private SpriteRenderer sr;
     public GameObject projectile;
     public GameObject deathAnim;
+
+    public int numOfHearts;
+    public SpriteRenderer[] hearts;
+    public Sprite fullhearts;
+    public Sprite emptyhearts;
 
     void Start()
     {
@@ -61,6 +67,33 @@ public class DemonScript : MonoBehaviour
 
         }
 
+        if (this.health > numOfHearts)
+        {
+            this.health = numOfHearts;
+        }
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+
+            if (i < this.health)
+            {
+                hearts[i].sprite = fullhearts;
+            }
+            else
+            {
+                hearts[i].sprite = emptyhearts;
+            }
+
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -79,6 +112,7 @@ public class DemonScript : MonoBehaviour
             if (this.health <= 0)
             {
                 Instantiate(deathAnim, transform.position, Quaternion.identity);
+                player.kills++; 
                 Destroy(gameObject);
 
             }

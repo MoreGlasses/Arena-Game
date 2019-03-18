@@ -6,9 +6,14 @@ public class Spawner : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject enemy;
-    public Transform[] spawnSpots;
     private float timeBetweenSpawns;
     public float startTimeBetweenSpawns;
+
+    public Transform spawnSpots;
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
 
     void Start()
     {
@@ -19,9 +24,10 @@ public class Spawner : MonoBehaviour
     {
         if(timeBetweenSpawns <= 0)
         {
-            int randPos = Random.Range(0, spawnSpots.Length - 1);
-            Instantiate(enemy, spawnSpots[randPos].position, Quaternion.identity);
+            spawnSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+            Instantiate(enemy, spawnSpots.position, Quaternion.identity);
             timeBetweenSpawns = 5;
+
         } else
         {
             timeBetweenSpawns -= Time.deltaTime;

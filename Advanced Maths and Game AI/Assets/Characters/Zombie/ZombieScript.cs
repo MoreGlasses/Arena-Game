@@ -25,6 +25,11 @@ public class ZombieScript : MonoBehaviour
     private SpriteRenderer sr;
     public GameObject deathAnim;
 
+    public int numOfHearts;
+    public SpriteRenderer[] hearts;
+    public Sprite fullhearts;
+    public Sprite emptyhearts;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
@@ -48,7 +53,34 @@ public class ZombieScript : MonoBehaviour
                 sr.flipX = true;
          
             }
-           
+
+        if (this.health > numOfHearts)
+        {
+            this.health = numOfHearts;
+        }
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+
+            if (i < this.health)
+            {
+                hearts[i].sprite = fullhearts;
+            }
+            else
+            {
+                hearts[i].sprite = emptyhearts;
+            }
+
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+
     }
 
 
@@ -59,6 +91,8 @@ public class ZombieScript : MonoBehaviour
         {
             player.health--;
             Debug.Log(player.health);
+            Instantiate(deathAnim, transform.position, Quaternion.identity);
+            player.kills++;
             Destroy(gameObject);
         }
 
@@ -69,6 +103,7 @@ public class ZombieScript : MonoBehaviour
             if (this.health <= 0)
             {
                 Instantiate(deathAnim, transform.position, Quaternion.identity);
+                player.kills++;
                 Destroy(gameObject);
                
             }

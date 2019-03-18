@@ -16,11 +16,15 @@ public class PlayerMovement : MonoBehaviour
     public bool facingRight = true;
     public float RotateSpeed = 3.0F;
     public int health = 3;
+    public GameObject deathAnim;
+    public Text countText;
+    public int kills;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        SetCountText();
+        kills = 0;
     }
  
 
@@ -35,6 +39,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (health <= 0)
         {
+
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene("Game Over");
         }
 
@@ -63,7 +69,8 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
-        
+
+        SetCountText();
 
     }
 
@@ -76,4 +83,8 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    void SetCountText()
+    {
+        countText.text = kills.ToString();
+    }
 }
