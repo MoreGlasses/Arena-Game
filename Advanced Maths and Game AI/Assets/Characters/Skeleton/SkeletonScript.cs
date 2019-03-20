@@ -15,6 +15,7 @@ public class SkeletonScript : MonoBehaviour
     private SpriteRenderer sr;
     public GameObject projectile;
     public GameObject deathAnim;
+    public GameObject hitAnimation;
     public float delay = 0f;
 
     public int numOfHearts;
@@ -136,12 +137,7 @@ public class SkeletonScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            player.health--;
-            Debug.Log(player.health);
-            Destroy(gameObject);
-        }
+
 
         if (other.CompareTag("Projectile"))
         {

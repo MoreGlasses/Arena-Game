@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         {
             spawnSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
             Instantiate(enemy, spawnSpots.position, Quaternion.identity);
-            timeBetweenSpawns = 5;
+            timeBetweenSpawns = startTimeBetweenSpawns;
 
         } else
         {

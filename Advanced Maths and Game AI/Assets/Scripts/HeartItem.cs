@@ -21,7 +21,7 @@ public class HeartItem : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && player.health <= 2)
+        if (other.CompareTag("Player") && player.health <= 4)
         {
             player.health++;
             Debug.Log(player.health);

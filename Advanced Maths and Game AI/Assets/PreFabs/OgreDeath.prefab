@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
         type: 3}
       propertyPath: m_Name
-      value: BowserDeath Variant
+      value: OgreDeath
       objectReference: {fileID: 0}
     - target: {fileID: 2482397391178598423, guid: 0f8731f4a6d319c48b34bd35506bd525,
         type: 3}
@@ -70,12 +70,12 @@ PrefabInstance:
     - target: {fileID: 2482397391178598423, guid: 0f8731f4a6d319c48b34bd35506bd525,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 33.80125
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2482397391178598423, guid: 0f8731f4a6d319c48b34bd35506bd525,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 33.80125
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2482397391178598423, guid: 0f8731f4a6d319c48b34bd35506bd525,
         type: 3}

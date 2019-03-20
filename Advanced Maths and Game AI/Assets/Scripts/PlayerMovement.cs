@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     float walkinghorizontal, walkingvertical;
     public bool facingRight = true;
     public float RotateSpeed = 3.0F;
-    public int health = 3;
+    public int health;
     public GameObject deathAnim;
     public Text countText;
     public int kills;
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        healthDisplay.text = "HEALTH : " + health;
+        healthDisplay.text = "Health : " + health;
 
         //if (health <= 0)
         //{

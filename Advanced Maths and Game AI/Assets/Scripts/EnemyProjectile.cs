@@ -9,7 +9,9 @@ public class EnemyProjectile : MonoBehaviour
     private Transform player;
     private PlayerMovement playerHealth;
     private Vector2 target;
+    public GameObject hitAnimation;
     
+
 
     private void Start()
     {
@@ -31,10 +33,17 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Wall"))
+        {
+
+            Instantiate(hitAnimation, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+        }
+
         if (other.CompareTag("Player"))
         {
             playerHealth.health--;
-            
+            Instantiate(hitAnimation, transform.position, Quaternion.identity);
             Debug.Log(playerHealth.health);
             DestroyProjectile();
 

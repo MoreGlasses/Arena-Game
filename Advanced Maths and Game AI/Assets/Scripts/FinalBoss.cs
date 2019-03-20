@@ -92,12 +92,14 @@ public class FinalBoss : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Wall"))
         {
-            player.health--;
-            Debug.Log(player.health);
-            Destroy(gameObject);
+
+            Instantiate(deathAnim, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
         }
+
+        
 
         if (other.CompareTag("Projectile"))
         {

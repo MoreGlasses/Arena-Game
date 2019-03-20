@@ -504,7 +504,7 @@ Transform:
   m_GameObject: {fileID: 4267443199881971471}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 11.67, y: -6.22, z: 0}
-  m_LocalScale: {x: 21, y: 21, z: 1.6141816}
+  m_LocalScale: {x: 133.3085, y: 133.3085, z: 1.6141816}
   m_Children:
   - {fileID: 4267443198455630253}
   - {fileID: 4267443198118687023}
@@ -616,7 +616,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4267443199881971471}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -641,9 +641,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2290682b59bf1b4c8fec8be911a33dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 100
   health: 6
   deathAnim: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
+    type: 3}
+  hitAnimation: {fileID: 3479349547955763393, guid: 160e34bea4517564986dc49af19839b1,
     type: 3}
   numOfHearts: 6
   hearts:

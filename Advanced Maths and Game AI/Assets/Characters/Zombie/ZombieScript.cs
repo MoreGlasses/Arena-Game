@@ -24,6 +24,7 @@ public class ZombieScript : MonoBehaviour
     private PlayerMovement player;
     private SpriteRenderer sr;
     public GameObject deathAnim;
+    public GameObject hitAnimation;
 
     public int numOfHearts;
     public SpriteRenderer[] hearts;
@@ -87,6 +88,14 @@ public class ZombieScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (other.CompareTag("Wall"))
+        {
+         
+            Instantiate(hitAnimation, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+        }
+
         if (other.CompareTag("Player"))
         {
             player.health--;
