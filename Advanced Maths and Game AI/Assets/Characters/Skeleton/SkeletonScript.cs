@@ -4,6 +4,8 @@ using System.Collections;
 
 public class SkeletonScript : MonoBehaviour
 {
+    Animator animator;
+
     public float speed;
     private float timeBetweenShots;
     public float startTimeBetweenShots;
@@ -46,6 +48,8 @@ public class SkeletonScript : MonoBehaviour
 
         moveSpots.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         isPatrolling = true;
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -53,12 +57,17 @@ public class SkeletonScript : MonoBehaviour
 
         float playerDistance = Vector2.Distance(playerPos.position, transform.position);
 
+
         if (timeBetweenShots <= 0 && playerDistance <= radiusOfSearch)
         {
-
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBetweenShots = startTimeBetweenShots;
+            if(this.health >= 2)
+            {
+                animator.SetTrigger("Skeleton Attack");
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBetweenShots = startTimeBetweenShots;
+            }
             isPatrolling = false;
+            animator.SetBool("Skeleton Patrolling", false);
         }
         else
         {
@@ -68,6 +77,19 @@ public class SkeletonScript : MonoBehaviour
 
         if (playerDistance >= radiusOfSearch) {
             isPatrolling = true;
+            transform.position = Vector2.MoveTowards(transform.position, moveSpots.position, speed * Time.deltaTime);
+            animator.SetBool("Skeleton Patrolling", true);
+        } else if (isPatrolling == false && this.health >= 2)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed* Time.deltaTime);
+            animator.SetBool("Skeleton Patrolling", false);
+            animator.SetTrigger("Skeleton Attack");
+
+        } else if (this.health < 2 && isPatrolling == false)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, -speed * Time.deltaTime);
+            animator.SetBool("Skeleton Patrolling"  , false);
+            animator.SetTrigger("Skeleton Retreat");
         }
 
 
@@ -111,14 +133,6 @@ public class SkeletonScript : MonoBehaviour
             }
         }
 
-        if (isPatrolling == true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, moveSpots.position, speed * Time.deltaTime);
-        } else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
-        }
-      
 
         if (Vector2.Distance(transform.position, moveSpots.position) < 0.2f)
         {

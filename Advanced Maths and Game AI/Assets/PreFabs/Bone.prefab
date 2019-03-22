@@ -90,12 +90,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269694151636077527}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c59bbe713b32fd04dad737ca50117f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 1000
 --- !u!58 &305575905149015651
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,5 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 300
-  hitAnimation: {fileID: 1034444650370279867, guid: b70862afa41b72d4d8631061700db8dd,
+  hitAnimation: {fileID: 3479349547955763393, guid: 160e34bea4517564986dc49af19839b1,
+    type: 3}
+  destroyAnimation: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
     type: 3}

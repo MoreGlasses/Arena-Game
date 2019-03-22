@@ -10,7 +10,8 @@ public class EnemyProjectile : MonoBehaviour
     private PlayerMovement playerHealth;
     private Vector2 target;
     public GameObject hitAnimation;
-    
+    public GameObject destroyAnimation;
+
 
 
     private void Start()
@@ -36,14 +37,14 @@ public class EnemyProjectile : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
 
-            Instantiate(hitAnimation, transform.position, Quaternion.identity);
+            Instantiate(destroyAnimation, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
         }
 
         if (other.CompareTag("Player"))
         {
             playerHealth.health--;
-            Instantiate(hitAnimation, transform.position, Quaternion.identity);
+            Instantiate(hitAnimation, player.transform.position, Quaternion.identity);
             Debug.Log(playerHealth.health);
             DestroyProjectile();
 

@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316896742061598990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00055, y: 0.13519998, z: 0}
-  m_LocalScale: {x: 0.29093835, y: 0.29093835, z: 3.782199}
+  m_LocalPosition: {x: -0.083, y: 0.1183, z: 0}
+  m_LocalScale: {x: 0.5469641, y: 0.5469641, z: 7.1105337}
   m_Children: []
   m_Father: {fileID: 1316896742946475780}
   m_RootOrder: 0
@@ -104,8 +104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316896742302109522}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0286, y: 0.0936, z: 0}
-  m_LocalScale: {x: 0.29093835, y: 0.29093835, z: 3.782199}
+  m_LocalPosition: {x: 0.003, y: 0.1183, z: 0}
+  m_LocalScale: {x: 0.5469641, y: 0.5469641, z: 7.1105337}
   m_Children: []
   m_Father: {fileID: 1316896742946475780}
   m_RootOrder: 1
@@ -330,6 +330,7 @@ MonoBehaviour:
     type: 3}
   deathAnim: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
     type: 3}
+  hitAnimation: {fileID: 0}
   delay: 3
   numOfHearts: 3
   hearts:
@@ -370,8 +371,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316896743182186612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.032, y: 0.0936, z: 0}
-  m_LocalScale: {x: 0.29093835, y: 0.29093835, z: 3.782199}
+  m_LocalPosition: {x: 0.087, y: 0.1183, z: 0}
+  m_LocalScale: {x: 0.5469641, y: 0.5469641, z: 7.1105337}
   m_Children: []
   m_Father: {fileID: 1316896742946475780}
   m_RootOrder: 2

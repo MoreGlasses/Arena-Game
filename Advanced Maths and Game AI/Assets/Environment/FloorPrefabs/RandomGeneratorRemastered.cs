@@ -57,8 +57,8 @@ public class RandomGeneratorRemastered : MonoBehaviour
             
             CreateTile(tile);
             CallMoveGenerator(direction);
-            
-           
+
+
             //yield return new WaitForSeconds(waitTime);
 
             if (i == numberOfTiles - 1)

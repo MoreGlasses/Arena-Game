@@ -91,8 +91,16 @@ public class ZombieScript : MonoBehaviour
 
         if (other.CompareTag("Wall"))
         {
-         
-            Instantiate(hitAnimation, transform.position, Quaternion.identity);
+            this.health--;
+            this.speed = speed - 15;
+            Instantiate(deathAnim, transform.position, Quaternion.identity);
+            if (this.health <= 0)
+            {
+                Instantiate(deathAnim, transform.position, Quaternion.identity);
+                player.kills++;
+                Destroy(gameObject);
+            }
+
             Destroy(other.gameObject);
         }
 
@@ -101,6 +109,7 @@ public class ZombieScript : MonoBehaviour
             player.health--;
             Debug.Log(player.health);
             Instantiate(deathAnim, transform.position, Quaternion.identity);
+            Instantiate(hitAnimation, transform.position, Quaternion.identity);
             player.kills++;
             Destroy(gameObject);
         }
@@ -108,6 +117,7 @@ public class ZombieScript : MonoBehaviour
         if (other.CompareTag("Projectile"))
         {
             this.health--;
+            this.speed = speed - 15;
             Debug.Log(this.health);
             if (this.health <= 0)
             {

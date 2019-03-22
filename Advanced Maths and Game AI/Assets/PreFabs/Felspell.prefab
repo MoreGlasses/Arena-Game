@@ -116,7 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 250
-  deathAnim: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
+  hitAnimation: {fileID: 3479349547955763393, guid: 160e34bea4517564986dc49af19839b1,
+    type: 3}
+  destroyAnimation: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,
     type: 3}
 --- !u!58 &4615003852252837583
 CircleCollider2D:
