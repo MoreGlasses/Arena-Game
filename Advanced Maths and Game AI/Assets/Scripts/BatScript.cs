@@ -25,5 +25,18 @@ public class BatScript : MonoBehaviour
                 Instantiate(health, other.transform.position, Quaternion.identity);
             }
         }
+
+        if (other.CompareTag("Spikes"))
+        {
+
+            Destroy(other.gameObject);
+
+            int probability = Random.Range(0, 7);
+
+            if (probability == 6)
+            {
+                Instantiate(health, other.transform.position, Quaternion.identity);
+            }
+        }
     }
 }

@@ -325,7 +325,7 @@ MonoBehaviour:
   speed: 75
   startTimeBetweenShots: 0.5
   health: 3
-  radiusOfSearch: 100
+  radiusOfSearch: 103.41
   projectile: {fileID: 269694151636077527, guid: 06c6e709b7bd93c4d8481d4125bbf00a,
     type: 3}
   deathAnim: {fileID: 2482397391178598420, guid: 0f8731f4a6d319c48b34bd35506bd525,

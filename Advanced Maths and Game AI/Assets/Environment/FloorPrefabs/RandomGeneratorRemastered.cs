@@ -12,7 +12,6 @@ public class RandomGeneratorRemastered : MonoBehaviour
     public int enemyAmount = 10;
 
     public GameObject[] tiles;
-    public GameObject wall;
     public List<Vector3> createdTiles;
     public int numberOfTiles;
     public int tileSize;
@@ -61,10 +60,6 @@ public class RandomGeneratorRemastered : MonoBehaviour
 
             //yield return new WaitForSeconds(waitTime);
 
-            if (i == numberOfTiles - 1)
-            {
-                End();
-            }
         }
 
         yield return 0;
@@ -159,60 +154,5 @@ public class RandomGeneratorRemastered : MonoBehaviour
 
     }
 
-    void End()
-    {
-        CreateWallValues();
-        CreateWalls();
-      
-    }
-
-
-    void CreateWallValues()
-    {
-        for (int i = 0; i < createdTiles.Count; i++)
-        {
-            if (createdTiles[i].y < minYWall)
-            {
-                minYWall = createdTiles[i].y;
-            }
-
-            if (createdTiles[i].y > maxYWall)
-            {
-                maxYWall = createdTiles[i].y;
-            }
-
-            if (createdTiles[i].x < minXWall)
-            {
-                minXWall = createdTiles[i].x;
-            }
-
-            if (createdTiles[i].x > maxXWall)
-            {
-                maxXWall = createdTiles[i].x;
-            }
-
-            xNumber = ((maxXWall - minXWall) / tileSize) + extraWallX;
-            yNumber = ((maxYWall - minYWall) / tileSize) + extraWallY;
-
-
-        }
-    }
-
-    void CreateWalls()
-    {
-        for (int x = 0; x < xNumber; x++)
-        {
-
-            for (int y = 0; y < yNumber; y++)
-            {
-                if (!createdTiles.Contains(new Vector3((minXWall - (extraWallX * tileSize) / 2) + (x * tileSize), (minYWall - (extraWallY * tileSize) / 2) + (y * tileSize))))
-                {
-                    GameObject wallObject = (GameObject)Instantiate(wall, new Vector3((minXWall - (extraWallX * tileSize) / 2) + (x * tileSize), (minYWall - (extraWallY * tileSize) / 2) + (y * tileSize)), transform.rotation);
-
-                    
-
-                }
-            }
-        }
-    }
+    
 }

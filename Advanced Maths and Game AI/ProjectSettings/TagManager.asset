@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - HealthPot
   - UnbreakableWall
+  - Spikes
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Walls
   - 
   - 
   - 
