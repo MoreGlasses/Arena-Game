@@ -11,6 +11,7 @@ public class DemonScript : MonoBehaviour
     public float startTimeBetweenShots;
 
     private Transform playerPos;
+    private Transform wallPos;
     private PlayerMovement player;
     private SpriteRenderer sr;
     public GameObject projectile;
@@ -25,6 +26,7 @@ public class DemonScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        wallPos = GameObject.FindGameObjectWithTag("Wall").GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
         timeBetweenShots = startTimeBetweenShots;
     }

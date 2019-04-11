@@ -65,6 +65,9 @@
      <Compile Include="Assets\Scripts\Health.cs" />
      <Compile Include="Assets\Scripts\HeartItem.cs" />
      <Compile Include="Assets\Scripts\ItemSpawner.cs" />
+     <Compile Include="Assets\Scripts\PathFinding\Grid.cs" />
+     <Compile Include="Assets\Scripts\PathFinding\Node.cs" />
+     <Compile Include="Assets\Scripts\PathFinding\Pathfinding.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Shooting.cs" />

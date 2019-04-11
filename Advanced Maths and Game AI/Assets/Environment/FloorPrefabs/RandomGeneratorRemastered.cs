@@ -6,9 +6,6 @@ public class RandomGeneratorRemastered : MonoBehaviour
 {
 
     
-    
-   
-
     public int enemyAmount = 10;
 
     public GameObject[] tiles;
@@ -28,20 +25,20 @@ public class RandomGeneratorRemastered : MonoBehaviour
     public float minX;
     public float maxX;
 
-    private float minXWall = 9999999;
-    private float minYWall = 9999999;
-    private float maxXWall = 0;
-    private float maxYWall = 0;
+
+    private float minXSpawn = 586;
+    private float minYSpawn = -90;
+    private float maxXSpawn = 745;
+    private float maxYSpawn = 50;
 
     public float xNumber;
     public float yNumber;
 
-    public float extraWallX;
-    public float extraWallY;
+
 
     void Start()
     {
-        
+
         StartCoroutine(GenerateArena());
     }
 
@@ -61,7 +58,7 @@ public class RandomGeneratorRemastered : MonoBehaviour
             //yield return new WaitForSeconds(waitTime);
 
         }
-
+        
         yield return 0;
     }
 
@@ -137,7 +134,7 @@ public class RandomGeneratorRemastered : MonoBehaviour
 
     void CreateTile(int tileIndex)
     {
-        if (!createdTiles.Contains(transform.position) )
+        if (!createdTiles.Contains(transform.position) && !(transform.position.x > minXSpawn && transform.position.x < maxXSpawn && transform.position.y > minYSpawn && transform.position.x > maxYSpawn))
         {
             GameObject tileObject;
 
